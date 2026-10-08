@@ -18,14 +18,13 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  let dark;
   return (
     <html
       lang="en"
-      className={dark}
+      className={`${geistSans.variable} ${geistMono.variable} dark h-full`}
     >
-      <body className="min-h-full flex flex-col">
-      {children}
+      <body className="flex min-h-full flex-col font-sans antialiased">
+        {children}
       </body>
     </html>
   );

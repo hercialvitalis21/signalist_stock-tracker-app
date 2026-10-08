@@ -149,7 +149,7 @@
 
 @layer utilities {
   .container {
-    @apply mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-screen-2xl px-4 md:px-6 lg:px-8;
   }
   .yellow-btn {
     @apply h-12 cursor-pointer bg-gradient-to-b from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-gray-950 font-medium text-base rounded-lg shadow-lg disabled:opacity-50;
@@ -158,10 +158,19 @@
     @apply text-gray-400 flex-col gap-4 md:gap-10 items-center sm:items-start;
   }
   .home-section {
-    @apply w-full gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3;
+    @apply grid w-full gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3;
+  }
+  .home-span-1 {
+    @apply min-w-0 md:col-span-1 xl:col-span-1;
+  }
+  .home-span-2 {
+    @apply min-w-0 md:col-span-1 xl:col-span-2;
   }
   .header {
-    @apply z-50 w-full h-[70px] bg-gray-800;
+    @apply sticky top-0 z-50 w-full h-[70px] bg-gray-800;
+  }
+  .header-nav {
+    @apply flex items-center gap-6 text-sm font-medium;
   }
   .header-wrapper {
     @apply flex justify-between items-center px-6 py-4 text-gray-500;
@@ -171,6 +180,9 @@
   }
   .auth-logo {
     @apply pt-6 lg:pt-8 mb-8 lg:mb-12;
+  }
+  .brand-logo {
+    @apply h-8 w-auto;
   }
   .auth-left-section {
     @apply w-full lg:w-[45%] lg:h-screen px-6 lg:px-16 flex flex-col overflow-y-auto;

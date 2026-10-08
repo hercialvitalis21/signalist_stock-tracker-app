@@ -1,0 +1,47 @@
+"use client";
+
+import { memo } from "react";
+import { cn } from "@/lib/utils";
+import useTradingViewWidget from "@/hooks/useTradingViewWidget";
+
+interface TradingViewWidgetProps {
+  title?: string;
+  scriptUrl: string;
+  config: Record<string, unknown>;
+  height?: number;
+  className?: string;
+}
+
+const TradingViewWidget = ({
+  title,
+  scriptUrl,
+  config,
+  height = 600,
+  className,
+}: TradingViewWidgetProps) => {
+  const containerRef = useTradingViewWidget(scriptUrl, config, height);
+
+  return (
+    <div className="w-full">
+      {title ? (
+        <h3 className="mb-5 text-2xl font-semibold text-gray-100">{title}</h3>
+      ) : null}
+      <div
+        className={cn("tradingview-widget-container", className)}
+        ref={containerRef}
+        style={{ minHeight: height }}
+      />
+      <div className="tradingview-widget-copyright">
+        <a
+          href="https://www.tradingview.com/"
+          rel="noopener nofollow"
+          target="_blank"
+        >
+          Track all markets on TradingView
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export default memo(TradingViewWidget);
